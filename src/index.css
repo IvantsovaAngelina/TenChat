@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  margin: 0;
+}
+
+.tenChat {
+  display: flex;
+  height: 100vh;
+}
+
+.list-chat {
+  width: 20%;
+  height: 100%;
+  border: 1px solid grey;
+}
+
+.list-chat-header{
+  display: flex;
+  flex-direction: row-reverse;
+  border: 1px solid grey;
+  padding: 8px;
+}
+
+.add-chat-btn {
+  width: 40px !important;
+  height: 40px;
+}
+
+.list-chat-item {
+  overflow: auto;
+  height:90%;
+}
+
+.item-chat {
+  display: flex;
+  border: 1px solid grey;
+  padding: 4px;
+  font-size: 10pt;
+}
+
+.item-chat-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.item-chat-img{
+  margin-right: 8px;
+}
+
+.item-chat-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.item-chat-date {
+  font-size: 8pt;
+  color: rgb(182, 182, 182);
+}
+
+.item-chat-user {
+  font-weight: 600;
+}
+
+.item-chat-mess {
+  margin-top: 15px;
+}
+
+.modal-item-user {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.item-user-name {
+  margin-left: 15px;
+}
+
+.chat {
+  background-color:seagreen;
+  width: 60%;
+  height: 100%;
+}
+
+.profile {
+  background-color: darkorchid;
+  width: 20%;
+  height: 100%;
+}
