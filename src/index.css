@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root{
+  overflow: hidden;
+}
+
 body{
   margin: 0;
 }
@@ -17,6 +21,7 @@ body{
 }
 
 .list-chat {
+  background-color: #f9f9f9;
   width: 20%;
   height: 100%;
   border: 1px solid grey;
@@ -32,6 +37,8 @@ body{
 .add-chat-btn {
   width: 40px !important;
   height: 40px;
+  background-color: rgb(76, 252, 76);
+  color: #ffffff;
 }
 
 .list-chat-item {
@@ -88,13 +95,93 @@ body{
 }
 
 .chat {
-  background-color:seagreen;
   width: 60%;
-  height: 100%;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.chat-message {
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+  max-width: 70%;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  background-color: #e7e7e7;
+  border-top: 1px solid grey;
+}
+
+.chat-input input {
+  border-color: #c1bfbf;
+  margin-right: 8px;
+  flex: 1;
+  width: 96%;
+}
+
+.chat-btn{
+  width: 4%;
 }
 
 .profile {
-  background-color: darkorchid;
+  background-color: #f9f9f9;
+  border: 1px solid grey;
   width: 20%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+}
+
+.profile-photo {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-phone-btn {
+  width: 50px !important;
+  height: 50px;
+  margin-right: 15px;
+  background-color: rgb(76, 252, 76);
+  color: #ffffff;
+}
+
+.profile-video-btn {
+  width: 50px !important;
+  height: 50px;
+  margin-right: 15px;
+  background-color: rgb(81, 81, 255);
+  color: #ffffff;
+}
+
+.profile-like-btn {
+  width: 50px !important;
+  height: 50px;  
+  background-color: rgb(254, 51, 51);
+  color: #ffffff;
 }

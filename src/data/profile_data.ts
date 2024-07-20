@@ -1,29 +1,34 @@
 import { IProfile } from '../model/profile';
+import alex from '../img/alex.jpg';
+import kotik from '../img/kotik.jpg';
+import julian from '../img/julian.jpg';
+import penguin from '../img/penguin.jpg';
+import shrek from '../img/shrek.png';
 
 export const profiles: IProfile[] = [
     {
         idUser: 101,
-        image: 'https://example.com/images/chat1.png',
+        image: alex,
         nameUser: 'Иван Петров'
     },
     {
         idUser: 102,
-        image: 'https://example.com/images/chat2.png',
+        image: kotik,
         nameUser: 'Анна Смирнова'
     },
     {
         idUser: 103,
-        image: 'https://example.com/images/chat3.png',
+        image: julian,
         nameUser: 'Сергей Иванов'
     },
     {
         idUser: 104,
-        image: 'https://example.com/images/chat4.png',
+        image: penguin,
         nameUser: 'Мария Кузнецова'
     },
     {
         idUser: 105,
-        image: 'https://example.com/images/chat5.png',
+        image: shrek,
         nameUser: 'Дмитрий Соколов'
     }
 ];
