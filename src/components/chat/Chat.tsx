@@ -1,43 +1,59 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Input, Button } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
+import { IChat } from '../../model/chat';
+import { chatMessages } from '../../data/chatMessages';
 
-export function Chat() {
-    const [messages, setMessages] = useState<string[]>([]);
-    const [newMessage, setNewMessage] = useState<string>('');
-    const chatBodyRef = useRef<HTMLDivElement>(null);
+interface ChatProps {
+  className?: string;
+  selectedChat: IChat | null;
+  onSendMessage: (message: string) => void;
+}
 
-    const handleSendMessage = () => {
-        if (newMessage.trim() !== '') {
-            setMessages([...messages, newMessage]);
-            setNewMessage('');
-        }
-    };
+export function Chat({ className, selectedChat, onSendMessage }: ChatProps) {
+  const [messages, setMessages] = useState<string[]>([]);
+  const [newMessage, setNewMessage] = useState<string>('');
+  const chatBodyRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (chatBodyRef.current) {
-            chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
-        }
-    }, [messages]);
+  useEffect(() => {
+    if (selectedChat) {
+      const chatData = chatMessages.find(chat => chat.idChat === selectedChat.idChat);
+      setMessages(chatData ? chatData.messages : []);
+    }
+  }, [selectedChat]);
 
-    return (
-        <div className="chat">
-            <div className="chat-body" ref={chatBodyRef}>
-                {messages.map((msg, index) => (
-                    <div key={index} className="chat-message">
-                        {msg}
-                    </div>
-                ))}
-            </div>
-            <div className="chat-input">
-                <Input
-                    placeholder="Написать сообщение"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    onPressEnter={handleSendMessage}
-                />
-                <Button type="primary" className="chat-btn" icon={<EditOutlined />} onClick={handleSendMessage} />
-            </div>
-        </div>
-    );
+  useEffect(() => {
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  const handleSendMessage = () => {
+    if (newMessage.trim() !== '') {
+      setMessages([...messages, newMessage]);
+      onSendMessage(newMessage);
+      setNewMessage('');
+    }
+  };
+
+  return (
+    <div className={`chat ${className}`}>
+      <div className="chat-body" ref={chatBodyRef}>
+        {messages.map((msg, index) => (
+          <div key={index} className="chat-message">
+            {msg}
+          </div>
+        ))}
+      </div>
+      <div className="chat-input">
+        <Input
+          placeholder="Написать сообщение"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          onPressEnter={handleSendMessage}
+        />
+        <Button type="primary" icon={<EditOutlined />} onClick={handleSendMessage} />
+      </div>
+    </div>
+  );
 }

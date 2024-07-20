@@ -3,7 +3,5 @@ export interface IChat {
     idSuperUser: number;
     idUser: number; 
     photo: string; 
-    dateLastMess: Date; 
-    lastMessage: string; 
     inList: boolean;
 }

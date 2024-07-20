@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ChatItem } from './ChatItem';
-import { chats as initialChats } from '../../data/chat_data';
 import { profiles } from '../../data/profile_data';
 import { Button, Modal, List } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -8,12 +7,13 @@ import { IChat } from '../../model/chat';
 import { IProfile } from '../../model/profile';
 
 interface ListChatsProps {
-  onProfileSelect: (profile: IProfile) => void;
+  onProfileSelect: (profile: IProfile, chat: IChat) => void;
+  chats: IChat[];
 }
 
-export function ListChats({ onProfileSelect }: ListChatsProps) {
+export function ListChats({ onProfileSelect, chats }: ListChatsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [chatList, setChatList] = useState<IChat[]>(initialChats);
+  const [chatList, setChatList] = useState<IChat[]>(chats);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -43,7 +43,7 @@ export function ListChats({ onProfileSelect }: ListChatsProps) {
           chatList.filter(chat => chat.inList).map(chat => {
             const user = profiles.find(p => p.idUser === chat.idUser);
             return user ? (
-              <div key={chat.idChat} onClick={() => onProfileSelect(user)}>
+              <div key={chat.idChat} onClick={() => onProfileSelect(user, chat)}>
                 <ChatItem chat={chat} user={user} />
               </div>
             ) : null;
@@ -54,7 +54,7 @@ export function ListChats({ onProfileSelect }: ListChatsProps) {
       <Modal title="Добавить контакт" open={isModalOpen} onOk={handleCancel} onCancel={handleCancel}>
         <List
           dataSource={availableChats}
-          renderItem={chat => {
+          renderItem={(chat: IChat) => {
             const user = profiles.find(profile => profile.idUser === chat.idUser);
             return (
               <List.Item onClick={() => handleAddChat(chat)}>

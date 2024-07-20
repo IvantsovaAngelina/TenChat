@@ -11,8 +11,6 @@ export const chats: IChat[] = [
         idSuperUser: 0,
         idUser: 101,
         photo: alex,
-        dateLastMess: new Date('2024-07-16T15:30:00'),
-        lastMessage: "Привет! Как дела?",
         inList: true
     },
     {
@@ -20,8 +18,6 @@ export const chats: IChat[] = [
         idSuperUser: 0, 
         idUser: 102,
         photo: kotik,
-        dateLastMess: new Date('2024-07-16T16:45:00'),
-        lastMessage: "Не забудь про встречу завтра.",
         inList: false
     },
     {
@@ -29,8 +25,6 @@ export const chats: IChat[] = [
         idSuperUser: 0, 
         idUser: 103,
         photo: julian,
-        dateLastMess: new Date('2024-07-17T09:20:00'),
-        lastMessage: "Доброе утро!",
         inList: false
     },
     {
@@ -38,8 +32,6 @@ export const chats: IChat[] = [
         idSuperUser: 0, 
         idUser: 104,
         photo: penguin,
-        dateLastMess: new Date('2024-07-17T10:15:00'),
-        lastMessage: "Отправил документы на почту.",
         inList: true
     },
     {
@@ -47,8 +39,6 @@ export const chats: IChat[] = [
         idSuperUser: 0, 
         idUser: 105,
         photo: shrek,
-        dateLastMess: new Date('2024-07-17T12:00:00'),
-        lastMessage: "До встречи в офисе.",
         inList: false
     }
 ];
