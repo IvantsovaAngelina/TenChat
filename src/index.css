@@ -80,8 +80,8 @@ body{
   margin-top: 10px;
 }
 
-.item-chat-date {
-
+.item-chat-selected {
+  background-color: rgba(227, 135, 255, 0.253);
 }
 
 .item-chat-date {

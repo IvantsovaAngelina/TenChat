@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Input, Button } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { IChat } from '../../model/chat';
-import { chatMessages } from '../../data/chatMessages';
+import { chatMessages } from '../../data/chat_messages';
 
 interface ChatProps {
   className?: string;

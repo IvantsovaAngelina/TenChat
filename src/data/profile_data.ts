@@ -4,6 +4,13 @@ import kotik from '../img/kotik.jpg';
 import julian from '../img/julian.jpg';
 import penguin from '../img/penguin.jpg';
 import shrek from '../img/shrek.png';
+import rick from '../img/rickandmorty.jpg'
+import tiger from '../img/tiger.jpg'
+import lol from '../img/lol.jpg'
+import lolbee from '../img/lolbee.jpg'
+import panda from '../img/panda.jpg'
+import kwaKit from '../img/kwaKit.jpg'
+import cow from '../img/cow.jpg'
 
 export const profiles: IProfile[] = [
     {
@@ -30,5 +37,41 @@ export const profiles: IProfile[] = [
         idUser: 105,
         image: shrek,
         nameUser: 'Дмитрий Соколов'
-    }
+    },
+    {
+        idUser: 106,
+        image: rick,
+        nameUser: 'Алексей Петров'
+    },
+    {
+        idUser: 107,
+        image: tiger,
+        nameUser: 'Ольга Филиппова'
+    },
+    {
+        idUser: 108,
+        image: lolbee,
+        nameUser: 'Наталья Морозова'
+    },
+    {
+        idUser: 109,
+        image: lol,
+        nameUser: 'Елена Кузнецова'
+    },
+    {
+        idUser: 110,
+        image: panda,
+        nameUser: 'Андрей Соловьев'
+    },
+    {
+        idUser: 111,
+        image: kwaKit,
+        nameUser: 'Ксения Дьякова'
+    },
+    {
+        idUser: 112,
+        image: cow,
+        nameUser: 'Артем Беляев'
+    },
+
 ];

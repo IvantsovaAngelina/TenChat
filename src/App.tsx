@@ -5,7 +5,7 @@ import { Profile } from './components/profile/Profile';
 import { IProfile } from './model/profile';
 import { IChat } from './model/chat';
 import { chats as initialChats } from './data/chat_data';
-import { chatMessages } from './data/chatMessages'; 
+import { chatMessages } from './data/chat_messages';
 
 function App() {
   const [selectedProfile, setSelectedProfile] = useState<IProfile | null>(null);
@@ -19,13 +19,6 @@ function App() {
 
   const handleSendMessage = (message: string) => {
     if (selectedChat) {
-      const updatedChats = chats.map(chat => 
-        chat.idChat === selectedChat.idChat
-          ? { ...chat, lastMessage: message }
-          : chat
-      );
-      setChats(updatedChats);
-
       const chatData = chatMessages.find(chat => chat.idChat === selectedChat.idChat);
       if (chatData) {
         chatData.messages.push(message);
@@ -33,6 +26,19 @@ function App() {
       } else {
         chatMessages.push({ idChat: selectedChat.idChat, messages: [message], dateLastMess: [new Date()] });
       }
+
+      const updatedChats = chats.map(chat => 
+        chat.idChat === selectedChat.idChat ? { ...chat, lastMessage: message, inList: true } : chat
+      );
+      
+      const sortedChats = updatedChats.sort((a, b) => {
+        const aDate = chatMessages.find(c => c.idChat === a.idChat)?.dateLastMess.slice(-1)[0] || new Date(0);
+        const bDate = chatMessages.find(c => c.idChat === b.idChat)?.dateLastMess.slice(-1)[0] || new Date(0);
+        return bDate.getTime() - aDate.getTime();
+      });
+
+      setChats(sortedChats);
+      setSelectedChat({ ...selectedChat });
     }
   };
 
