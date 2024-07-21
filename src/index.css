@@ -39,6 +39,11 @@ body{
   color: #ffffff;
 }
 
+.ant-modal-body{
+  height: 450px;
+  overflow: auto;
+}
+
 .list-chat-item {
   overflow: auto;
   height:90%;
@@ -65,6 +70,7 @@ body{
 
 .item-chat-context{
   width: 73%;
+  margin-left: 15px;
 }
 
 .item-chat-user {
@@ -99,8 +105,11 @@ body{
   margin-left: 15px;
 }
 
+.tenChat-min{
+  width: 80%;
+}
+
 .chat {
-  width: 60%;
   height: 100vh; 
   display: flex;
   flex-direction: column;
@@ -112,12 +121,12 @@ body{
 }
 
 .chat-default {
-  width: 80%;
+  width: 100%;
   transition: width 0.3s ease;
 }
 
 .chat-selected {
-  width: 60%;
+  width: 100%;
   transition: width 0.3s ease;
 }
 
@@ -193,3 +202,125 @@ body{
   background-color: rgb(254, 51, 51);
   color: #ffffff;
 }
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  height: 33px;
+  
+}
+
+.profile-header-photo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-photo-name {
+  display: flex;
+  align-items: center;
+}
+
+.profile-header h2 {
+  font-size: 15px;
+}
+
+@media (max-width: 1380px) {
+  .item-chat-context {
+    margin-left: 15px;
+  }
+
+  .tenChat-min {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1240px) {
+  .item-chat-context {
+    margin-left: 20px;
+  }
+
+  .item-chat-date {
+    display: none;
+  }
+
+  .tenChat-min {
+    width: 100%;
+  }
+}
+@media (max-width: 1140px) {
+  .item-chat-context {
+    margin-left: 25px;
+  }
+
+  .item-chat-date {
+    display: none;
+  }
+
+  .tenChat-min {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profile.profile-big {
+    display: none !important;
+  }
+
+  .tenChat-min {
+    width: 80%;
+  }
+
+  .chat { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    height: calc(93vh - 5px);
+  }
+
+  .item-chat-context  {
+    display: none;
+  }
+
+  .item-chat {
+    display: flex;
+    border: 1px solid grey;
+    padding: 8px;
+    font-size: 10pt;
+  }
+
+  .list-chat {
+    background-color: #f9f9f9;
+    width: 10%;
+    height: 100%;
+    border: 1px solid grey;
+  
+  }
+
+  .chat-default {
+    width: 100%;
+    transition: width 0.3s ease;
+    height: 100vh;
+  }
+
+  .tenChat-min {
+    width: 100%;
+  }
+
+  .item-chat-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+

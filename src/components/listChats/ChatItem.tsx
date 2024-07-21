@@ -13,7 +13,7 @@ export function ChatItem({ chat, user, isSelected }: ChatProps) {
     const chatData = chatMessages.find(c => c.idChat === chat.idChat);
     const lastMessage = chatData ? chatData.messages[chatData.messages.length - 1] : "Нет сообщений";
     const lastMessageDate = chatData ? chatData.dateLastMess[chatData.dateLastMess.length - 1] : null;
-    const formattedLastMessageDate = lastMessageDate ? lastMessageDate.toLocaleDateString('ru-RU') : "Нет сообщений";
+    const formattedLastMessageDate = lastMessageDate ? lastMessageDate.toLocaleDateString('ru-RU') : "";
 
     return (
         <div className={`item-chat ${isSelected ? 'item-chat-selected' : ''}`}>
